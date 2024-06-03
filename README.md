@@ -8,9 +8,6 @@ molecool
 A Python package for analyzing and visualizing xyz files.
 This repository is currently under development. To do installation in development mode, download this repository and type 'pip install -e.' in the repository directory.
 
-This package requires the following:
-- Numpy
-- matplotlib
 
 ### Copyright
 
@@ -22,10 +19,14 @@ Project based on the
 [Computational Molecular Science Python Cookiecutter](https://github.com/molssi/cookiecutter-cms) version 1.1.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> zen
 
 This package requires the following:
 - Numpy
 - matplotlib
+<<<<<<< HEAD
 
 Features should be developed on branches. 
 To create and switch to a branch, use the command
@@ -35,6 +36,8 @@ To create and switch to a branch, use the command
 To switch to an existing branch, use
 
 `git checkout new_branch_name`
+=======
+>>>>>>> zen
 =======
 >>>>>>> zen
 =======
