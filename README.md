@@ -36,9 +36,6 @@ To create and switch to a branch, use the command
 To switch to an existing branch, use
 
 `git checkout new_branch_name`
-=======
->>>>>>> zen
-=======
->>>>>>> zen
-=======
->>>>>>> zen
+
+To submit your freature to be incorporated into the main branch, you should submit a 'Pull Request'.
+The repository maintainers will review your pull request before accepting your changes.
