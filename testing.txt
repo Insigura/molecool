@@ -3,11 +3,9 @@ This is the start of testing.txt
 ******************************************
 
 I added this file from a new clone!
-<<<<<<< HEAD
 Now I added a new line!
-=======
+I added this line from the GitHub web interface!
 
 ******************************************
 This is the end of the testing.txt
 ******************************************
->>>>>>> refs/remotes/origin/main
