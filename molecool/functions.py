@@ -66,4 +66,5 @@ def open_pdb(f_loc):
             c2 = [float(x) for x in l[30:55].split()]
             c.append(c2)
     coords = np.array(c)
+    sym = np.arry(sym)
     return sym, coords
