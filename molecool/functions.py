@@ -1,5 +1,6 @@
 """Provide the primary functions."""
 
+import numpy as np
 
 def canvas(with_attribution=True):
     """
