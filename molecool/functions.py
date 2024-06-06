@@ -2,6 +2,7 @@
 
 import numpy as np
 
+
 def canvas(with_attribution=True):
     """
     Placeholder function to show example docstring (NumPy format).
@@ -29,6 +30,7 @@ if __name__ == "__main__":
     # Do something if this file is invoked on its own
     print(canvas())
 
+
 def zen(with_attribution=True):
     quote = """Beautiful is better than ugly.
     Explicit is better than implicit.
@@ -51,62 +53,70 @@ def zen(with_attribution=True):
     Namespaces are one honking great idea -- let's do more of those!"""
 
     if with_attribution:
-      quote += "\n\tTim Peters"
+        quote += "\n\tTim Peters"
 
     return quote
+
 
 def open_pdb(file_location):
     """Open and read coordinates and atom symbols from a pdb file.
 
-     The pdb file must specify the atom elements in the last column, and follow
-     the conventions outlined in the PDB format specification.
+    The pdb file must specify the atom elements in the last column, and follow
+    the conventions outlined in the PDB format specification.
 
-     Parameters
-     ----------
-     file_location : str
-         The location of the pdb file to read in.
+    Parameters
+    ----------
+    file_location : str
+        The location of the pdb file to read in.
 
-     Returns
-     -------
-     coords : np.ndarray
-         The coordinates of the pdb file.
-     symbols : list
-         The atomic symbols of the pdb file.
+    Returns
+    -------
+    coords : np.ndarray
+        The coordinates of the pdb file.
+    symbols : list
+        The atomic symbols of the pdb file.
 
-     """
-    
+    """
+
     with open(file_location) as f:
         data = f.readlines()
 
     coordinates = []
     symbols = []
     for line in data:
-        if 'ATOM' in line[0:6] or 'HETATM' in line[0:6]:
+        if "ATOM" in line[0:6] or "HETATM" in line[0:6]:
             symbols.append(l[76:79].strip())
             atom_coords = [float(x) for x in l[30:55].split()]
             coordinates.append(c2)
 
     coords = np.array(coordinates)
     symbols = np.arry(symbols)
-    
+
     return symbols, coords
 
+
 def write_xyz(file_location, symbols, coordinates):
-    
+
     ## Write an xyz file given a file location, symbols, and coordinates.
     num_atoms = len(symbols)
 
     if num_atoms != len(coordinates):
-        raise ValueError(f"write_xyz : the number of symbols ({num_atoms}) and number of coordinates ({len(coordinates)}) must be the same to write syx file!")
-    
-    with open(file_location, 'w+') as f:
-        f.write('{}\n'.format(num_atoms))
-        f.write('XYZ file\n')
-        
+        raise ValueError(
+            f"write_xyz : the number of symbols ({num_atoms}) and number of coordinates ({len(coordinates)}) must be the same to write syx file!"
+        )
+
+    with open(file_location, "w+") as f:
+        f.write("{}\n".format(num_atoms))
+        f.write("XYZ file\n")
+
         for i in range(num_atoms):
-            f.write('{}\t{}\t{}\t{}\n'.format(symbols[i], 
-                                              coordinates[i,0], coordinates[i,1], coordinates[i,2]))
-            
+            f.write(
+                "{}\t{}\t{}\t{}\n".format(
+                    symbols[i], coordinates[i, 0], coordinates[i, 1], coordinates[i, 2]
+                )
+            )
+
+
 def calculate_distance(rA, rB):
     """Calculate the distance between two points.
 
@@ -119,7 +129,7 @@ def calculate_distance(rA, rB):
     -------
     distance : float
         The distance between the two points.
-    
+
     Examples
     --------
     >>> r1 = np.array([0, 0, 0])
@@ -127,7 +137,7 @@ def calculate_distance(rA, rB):
     >>> calculate_distance(r1, r2)
     0.1
     """
-    dist_vec = (rA - rB)
+    dist_vec = rA - rB
     distance = np.linalg.norm(dist_vec)
-        
+
     return distance
