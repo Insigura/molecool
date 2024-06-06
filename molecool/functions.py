@@ -85,9 +85,9 @@ def open_pdb(file_location):
     symbols = []
     for line in data:
         if "ATOM" in line[0:6] or "HETATM" in line[0:6]:
-            symbols.append(l[76:79].strip())
-            atom_coords = [float(x) for x in l[30:55].split()]
-            coordinates.append(c2)
+            symbols.append(line[76:79].strip())
+            atom_coords = [float(x) for x in line[30:55].split()]
+            coordinates.append(atom_coords)
 
     coords = np.array(coordinates)
     symbols = np.arry(symbols)
@@ -97,7 +97,7 @@ def open_pdb(file_location):
 
 def write_xyz(file_location, symbols, coordinates):
 
-    ## Write an xyz file given a file location, symbols, and coordinates.
+    # Write an xyz file given a file location, symbols, and coordinates.
     num_atoms = len(symbols)
 
     if num_atoms != len(coordinates):
